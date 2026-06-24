@@ -28,6 +28,7 @@
 # %%
 import pandas as pd
 
+pd.options.future.infer_string = True
 df = pd.read_csv("./data/Housing.csv")
 
 # %% [markdown]
@@ -44,8 +45,8 @@ df.dtypes
 
 # %% [markdown]
 # Bộ dữ liệu gồm 13 cột:
-# - 7 cột số (int64): price, area, bedrooms, bathrooms, stories, parking
-# - 6 cột chữ (str): mainroad, guestroom, basement, hotwaterheating,
+# - 6 cột số (int64): price, area, bedrooms, bathrooms, stories, parking
+# - 7 cột chữ (str): mainroad, guestroom, basement, hotwaterheating,
 # airconditioning, prefarea, furnishingstatus sẽ được encode ở bước tiền xử lý.
 
 # %%
@@ -76,7 +77,7 @@ df.describe(include='str')
 
 # %%
 for col in df.select_dtypes(include='str').columns:
-    print(col, ':', df[col].unique())
+    print(col, ':', df[col].unique().tolist())
 
 # %% [markdown]
 # Các giá trị cụ thể từng cột chữ:
