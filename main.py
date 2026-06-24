@@ -77,7 +77,7 @@ df.describe(include='str')
 
 # %%
 for col in df.select_dtypes(include='str').columns:
-    print(col, ':', df[col].unique())
+    print(col, ':', df[col].unique().tolist())
 
 # %% [markdown]
 # Các giá trị cụ thể từng cột chữ:
